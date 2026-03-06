@@ -1,4 +1,3 @@
-End-to-End Machine Learning Lakehouse Pipeline (Databricks)
 This repository contains a 14-day hands-on project where I built an end-to-end Machine Learning pipeline using the Databricks Lakehouse architecture.
 The project demonstrates how raw data can be transformed into actionable predictions and recommendations using Spark, Delta Lake, and MLflow.
 It covers the complete lifecycle:
