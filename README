@@ -1,82 +1,63 @@
 #📊 Databricks Advanced AI Challenge – End-to-End ML Lakehouse Pipeline
 
-**🚀 Project Overview**
-This repository documents my 14-day journey through the Databricks Advanced AI Challenge, where I built a complete Machine Learning Lakehouse pipeline using PySpark, Delta Lake, and MLflow.
-The goal of this project was to design an end-to-end data and ML system that starts from raw event data and produces both predictive insights and personalized recommendations.
 
-Over 14 days, the project evolved from simple data transformations into a full pipeline covering:
+##🚀 Project Overview
+
+This repository documents my 14-day journey through the Databricks Advanced AI Challenge, where I built a complete Machine Learning Lakehouse pipeline using PySpark, Delta Lake, and MLflow.
+The goal of this project was to design an end-to-end data and machine learning system that starts from raw event data and produces both predictive insights and personalized recommendations.
+Over the course of the challenge, the project evolved from simple data transformations into a complete ML system covering:
 Data ingestion
 Feature engineering
-Machine learning training
+Machine learning model training
 Experiment tracking
-Batch inference
+Batch inference pipelines
 Recommendation systems
-Performance optimization
-Data versioning
+Query performance optimization
+Delta Lake versioning
 System architecture design
 
 ##🏗 System Architecture
-The pipeline follows the **Lakehouse Architecture**.
 
-Raw Event Data
-      │
-      ▼
+The project follows a **Lakehouse Architecture**, combining scalable data engineering with machine learning workflows.
+
+Raw Event Data (CSV)
+        │
+        ▼
 Bronze Layer (Delta Tables)
 events_delta
-      │
-      ▼
+        │
+        ▼
 Silver Layer (Feature Engineering)
 user_features
-      │
-      ▼
+        │
+        ▼
 Machine Learning Pipeline
 Feature Vectorization
-      │
-      ▼
+        │
+        ▼
 Model Training
 (Logistic Regression & Random Forest)
-      │
-      ▼
+        │
+        ▼
 Gold Layer
-Predictions & Recommendations
+Predictions Table
+final_model_predictions
+Parallel Pipeline – Recommendation System
+User Interaction Data
+        │
+        ▼
+ALS Collaborative Filtering Model
+        │
+        ▼
+Top-N Product Recommendations
+        │
+        ▼
+Gold Recommendation Table
+gold_user_recommendations
 
-Two ML systems were implemented:
+##⚙️ Technologies Used
 
-**1️⃣ Purchase Prediction Model**
-Predicts whether a user will make a purchase.
-Algorithms used:
-Logistic Regression
-Random Forest
-Evaluation metric:
-AUC (Area Under ROC Curve)
-
-**2️⃣ Recommendation System**
-Built using ALS Collaborative Filtering.
-Generates:
-Top-5 product recommendations per user.
-
-databricks-advanced-ai-challenge
-│
-├── Day01_Delta_Conversion
-├── Day02_Feature_Engineering
-├── Day03_Parameterization_Jobs
-├── Day04_Streaming_Pipeline
-├── Day05_Production_Features
-├── Day06_Model_Training
-├── Day07_MLflow_Tracking
-├── Day08_Batch_Inference
-├── Day09_Recommendation_System
-├── Day10_Query_Optimization
-├── Day11_Delta_Time_Travel
-├── Day12_Runtime_Optimization
-├── Day13_System_Architecture
-├── Day14_Final_Pipeline
-│
-└── README.md
-
-Each notebook represents the learning and implementation of one day in the challenge.
-
-# **⚙️ Technologies Used**
+This project leverages modern data engineering and machine learning tools:
 Databricks
 Apache Spark
 PySpark
@@ -85,37 +66,119 @@ MLflow
 Spark MLlib
 Structured Streaming
 
-## **📅 Challenge Breakdown**
-Day	Topic
-Day 1	Delta Lake ingestion
-Day 2	Feature engineering
-Day 3	Notebook parameterization
-Day 4	Streaming simulation
-Day 5	Production feature pipeline
-Day 6	ML model training
-Day 7	MLflow experiment tracking
-Day 8	Batch inference pipeline
-Day 9	Recommendation system (ALS)
-Day 10	Query optimization
-Day 11	Delta time travel
-Day 12	Runtime & cost optimization
-Day 13	System architecture design
-Day 14	Final integrated pipeline
+##🔄 End-to-End Pipeline Workflow
 
-# **📊 Key Learnings**
-This project helped me understand:
+The full system follows this workflow:
+1️⃣ Data Ingestion
+Raw event data is ingested and stored in Delta tables in the Bronze layer.
+
+2️⃣ Feature Engineering
+User-level behavioral features are generated from event data.
+Examples:
+Total events
+Purchase count
+Total spend
+Average product price
+These are stored in the Silver layer.
+
+3️⃣ Model Training
+Machine learning models are trained using Spark MLlib.
+Models used:
+Logistic Regression (baseline model)
+Random Forest (final model)
+Evaluation metric:
+AUC (Area Under ROC Curve)
+
+4️⃣ Experiment Tracking
+All model experiments are tracked using MLflow, logging:
+Model parameters
+Evaluation metrics
+Model artifacts
+
+5️⃣ Batch Inference
+The trained model generates predictions for all users and saves results in the Gold layer.
+
+6️⃣ Recommendation System
+An ALS Collaborative Filtering model generates Top-5 product recommendations for each user.
+
+7️⃣ Optimization & Governance
+Additional engineering work included:
+Delta Lake OPTIMIZE
+Query explain plan analysis
+Runtime optimization
+Delta Time Travel
+Data versioning
+
+
+##📁 Repository Structure
+
+IDC-Advanced-14-Days-Challenge
+│
+├── Advanced Day-1.ipynb
+├── Advanced Day-2.ipynb
+├── Advanced Day-3.ipynb
+├── Advanced Day-4.ipynb
+├── Advanced Day-5.ipynb
+├── Advanced Day-6.ipynb
+├── Advanced Day-7.ipynb
+├── Advanced Day-8.ipynb
+├── Advanced Day-9 - ALS Recommendation.ipynb
+├── Advanced Day-10.ipynb
+├── Advanced Day-11.ipynb
+├── Advanced Day-12.ipynb
+├── Advanced Day-14.ipynb
+│
+└── README.md
+
+Each notebook represents the work completed on that day of the challenge.
+
+##📅 Challenge Breakdown
+
+**Day**	**Topic**
+
+Day 1	   Delta Lake ingestion
+Day 2	   Feature engineering
+Day 3	   Notebook parameterization
+Day 4	   Streaming simulation
+Day 5	   Production feature engineering
+Day 6	   Machine learning training
+Day 7	   MLflow experiment tracking
+Day 8	   Batch inference pipeline
+Day 9	   Recommendation system (ALS)
+Day 10   Query performance optimization
+Day 11   Delta Lake time travel
+Day 12   Runtime and cost optimization
+Day 13   System architecture design
+Day 14   Final integrated ML pipeline
+
+
+##📊 Key Learnings
+
+This challenge helped deepen my understanding of:
 End-to-end ML pipeline development
-Feature engineering for ML systems
-Model training and evaluation with Spark ML
+Feature engineering for machine learning
+Distributed model training with Spark ML
 Experiment tracking with MLflow
 Delta Lake capabilities (versioning, optimization)
-Recommendation systems using ALS
-Performance and cost optimization in distributed systems
+Building recommendation systems
+Performance tuning in Spark
 Designing scalable data architectures
 
-#🤝 Connect
-If you found this project interesting or want to discuss data engineering and machine learning systems, feel free to connect!
-LinkedIn: www.linkedin.com/in/srishti-am
+##🔮 Future Improvements
 
+Possible enhancements for this project:
+Real-time inference pipeline
+Feature store integration
+Model monitoring and drift detection
+CI/CD for ML pipelines
+Automated retraining workflows
 
+##🤝 Connect
 
+If you found this project interesting or want to discuss data engineering, machine learning systems, or lakehouse architecture, feel free to connect.
+LinkedIn: (Add your LinkedIn profile here)
+
+##⭐ Support
+
+If you found this repository useful or interesting, consider giving it a ⭐ on GitHub.
+It helps support the project and encourages sharing knowledge with the community.
