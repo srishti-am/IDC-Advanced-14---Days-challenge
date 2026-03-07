@@ -1,1 +1,16 @@
+#📊 Databricks Advanced AI Challenge – End-to-End ML Lakehouse Pipeline
 
+**🚀 Project Overview**
+This repository documents my 14-day journey through the Databricks Advanced AI Challenge, where I built a complete Machine Learning Lakehouse pipeline using PySpark, Delta Lake, and MLflow.
+The goal of this project was to design an end-to-end data and ML system that starts from raw event data and produces both predictive insights and personalized recommendations.
+
+Over 14 days, the project evolved from simple data transformations into a full pipeline covering:
+Data ingestion
+Feature engineering
+Machine learning training
+Experiment tracking
+Batch inference
+Recommendation systems
+Performance optimization
+Data versioning
+System architecture design
