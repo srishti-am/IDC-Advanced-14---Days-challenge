@@ -14,3 +14,108 @@ Recommendation systems
 Performance optimization
 Data versioning
 System architecture design
+
+##🏗 System Architecture
+The pipeline follows the **Lakehouse Architecture**.
+
+Raw Event Data
+      │
+      ▼
+Bronze Layer (Delta Tables)
+events_delta
+      │
+      ▼
+Silver Layer (Feature Engineering)
+user_features
+      │
+      ▼
+Machine Learning Pipeline
+Feature Vectorization
+      │
+      ▼
+Model Training
+(Logistic Regression & Random Forest)
+      │
+      ▼
+Gold Layer
+Predictions & Recommendations
+
+Two ML systems were implemented:
+
+**1️⃣ Purchase Prediction Model**
+Predicts whether a user will make a purchase.
+Algorithms used:
+Logistic Regression
+Random Forest
+Evaluation metric:
+AUC (Area Under ROC Curve)
+
+**2️⃣ Recommendation System**
+Built using ALS Collaborative Filtering.
+Generates:
+Top-5 product recommendations per user.
+
+databricks-advanced-ai-challenge
+│
+├── Day01_Delta_Conversion
+├── Day02_Feature_Engineering
+├── Day03_Parameterization_Jobs
+├── Day04_Streaming_Pipeline
+├── Day05_Production_Features
+├── Day06_Model_Training
+├── Day07_MLflow_Tracking
+├── Day08_Batch_Inference
+├── Day09_Recommendation_System
+├── Day10_Query_Optimization
+├── Day11_Delta_Time_Travel
+├── Day12_Runtime_Optimization
+├── Day13_System_Architecture
+├── Day14_Final_Pipeline
+│
+└── README.md
+
+Each notebook represents the learning and implementation of one day in the challenge.
+
+# **⚙️ Technologies Used**
+Databricks
+Apache Spark
+PySpark
+Delta Lake
+MLflow
+Spark MLlib
+Structured Streaming
+
+## **📅 Challenge Breakdown**
+Day	Topic
+Day 1	Delta Lake ingestion
+Day 2	Feature engineering
+Day 3	Notebook parameterization
+Day 4	Streaming simulation
+Day 5	Production feature pipeline
+Day 6	ML model training
+Day 7	MLflow experiment tracking
+Day 8	Batch inference pipeline
+Day 9	Recommendation system (ALS)
+Day 10	Query optimization
+Day 11	Delta time travel
+Day 12	Runtime & cost optimization
+Day 13	System architecture design
+Day 14	Final integrated pipeline
+
+# **📊 Key Learnings**
+This project helped me understand:
+End-to-end ML pipeline development
+Feature engineering for ML systems
+Model training and evaluation with Spark ML
+Experiment tracking with MLflow
+Delta Lake capabilities (versioning, optimization)
+Recommendation systems using ALS
+Performance and cost optimization in distributed systems
+Designing scalable data architectures
+
+#🤝 Connect
+If you found this project interesting or want to discuss data engineering and machine learning systems, feel free to connect!
+LinkedIn: www.linkedin.com/in/srishti-am
+
+
+
